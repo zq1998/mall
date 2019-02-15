@@ -1,4 +1,4 @@
-##技术点
+## 技术点
 ```$xslt
 axios.js：Vue官方推荐的底层封装promise的异步网络请求的框架
 mint-ui.js：饿了么封装的移动端的Vue组件库
