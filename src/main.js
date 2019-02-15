@@ -8,18 +8,22 @@ import store from './store/store'
 Vue.config.productionTip = false;
 
 import "../static/css/global.css"
-import MintUI from 'mint-ui'
-Vue.use(MintUI);//注册全局组件给Vue.prototype挂载对象 this.xx访问
-import  'mint-ui/lib/style.css'
+
+// import MintUI from 'mint-ui'
+// Vue.use(MintUI);//注册全局组件给Vue.prototype挂载对象 this.xx访问
+// import  'mint-ui/lib/style.css'
+import MyMintUIPlugin from './MyMintUIPlugin';
+Vue.use(MyMintUIPlugin);
+
 /* eslint-disable no-new */
 import Axios from 'axios'
 import Installer from "@/plugin/installer"
 Vue.use(Installer);
 Vue.prototype.$axios=Axios;
-Axios.defaults.baseURL="https://www.sinya.online/api/";
+Axios.defaults.baseURL="";
 // 定义拦截器
 Axios.interceptors.request.use(function (config) {
-  // MintUI.Indicator.open({
+  // Indicator.open({
   //   text: '加载中...',
   //   spinnerType: 'fading-circle'
   // });
@@ -28,7 +32,7 @@ Axios.interceptors.request.use(function (config) {
 });
 Axios.interceptors.response.use(function (response) {
   //response {config:{},data:{} ,headers:{}}
-  MintUI.Indicator.close();
+  Indicator.close();
   return response;
 });
 
